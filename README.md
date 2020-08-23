@@ -35,6 +35,7 @@ Face Mask Detection
 ·下面进入快乐代码时间 ·
 以下代码主要实现前两者，即获取图像和人脸识别：
 
+```
 import cv2
 face_cascade = cv2.CascadeClassifier("D:\\mask\\haarcascade_frontalface_default.xml")
 cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
@@ -58,10 +59,13 @@ while True:
 cap.release() # 释放摄像头
 cv2.destroyAllWindows()
 
+```
 通过opencv调取内置摄像头以获取图像，并对图像进行人脸识别检测，将获取的图片保存在本地以便后面进行口罩检测。
 
 以下代码主要实现面部的口罩检测识别：
 
+
+```
 import paddlehub as hub
 import cv2
 module = hub.Module(name=”pyramidbox_lite_mobile_mask”) #口罩检测模型
@@ -69,15 +73,15 @@ test_img_path = “C:\Users\Dell\Pictures\3.png”# 读取本地图片
 input_dict = {“data”: [cv2.imread(test_img_path)]}
 results = module.face_detection(data=input_dict)
 print(results)
+
+```
+
 通过导入面部口罩检测模型，读取本地图片并对其进行分析检测，从而得到是否佩戴口罩的结果。
 
 简单的整合一下，就形成了项目完整的50行代码：
 
--- coding:utf-8 --
-@Time : 22:53
-@Author: Thomas
-@File :mask.py
-@Software : PyCharm
+
+```
 
 import paddlehub as hub
 import cv2
@@ -129,6 +133,8 @@ while(True):
         capture.release()           #释放摄像头q
         cv2.destroyAllWindows()         #删除建立的全部窗口
         break
+
+```
 
 准确率
 口罩人脸检测部分在准确度上达到了 98%，且口罩人脸分类部分准确率同样达到了 96.5%。
