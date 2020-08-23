@@ -57,6 +57,7 @@ while True:
 
 cap.release() # 释放摄像头
 cv2.destroyAllWindows()
+
 通过opencv调取内置摄像头以获取图像，并对图像进行人脸识别检测，将获取的图片保存在本地以便后面进行口罩检测。
 
 以下代码主要实现面部的口罩检测识别：
