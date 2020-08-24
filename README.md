@@ -1,6 +1,6 @@
 # mask_test
 Face Mask Detection
-面部口罩识别检测@人脸识别
+使用飞桨实现面部口罩识别检测@人脸识别
 项目介绍
 【
 
